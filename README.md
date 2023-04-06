@@ -19,9 +19,10 @@ function GetCoreObject()
   return Core
 end
 
-Core = Config.Framework ~= 'none' and GetCoreObject() or nil```
+Core = Config.Framework ~= 'none' and GetCoreObject() or nil
 
-- Getting PlayerData
+
+- Getting PlayerData -- Gets the players data
 
 ---@return string LoadEvent The event to listen for when the player loads
 function GetLoadEvent()
@@ -35,8 +36,8 @@ function GetLoadEvent()
   end
 end
 
-- Getting the PlayerUnload Event
 
+- Getting the PlayerUnload Event -- When the player unloads.
 
 ---@return string UnloadEvent The event to listen for when the player unloads
 function GetUnloadEvent()
@@ -50,8 +51,8 @@ function GetUnloadEvent()
   end
 end
 
-- Getting the Job Event
 
+- Getting the Job Event -- When the job gets updated.
 
 ---@return string JobEvent The event to listen for when the player changes job
 function GetJobEvent()
@@ -63,8 +64,8 @@ function GetJobEvent()
   end
 end
 
-- Triggering CallBacks
 
+- Triggering CallBacks -- Trigger callbacks in each framework
 
 ---@param name string The name of the event to trigger
 ---@param cb function The callback to call when the event is triggered
@@ -79,11 +80,9 @@ function TriggerCallback(name, cb, ...)
   end
 end
 
-
 ---SERVER
 
-- Get Entity Coords
-
+- Get Entity Coords -- Uses the framework get entity coords
 
 ---@param entity number The entity to get the coords from
 ---@return vector4 coords The coords of the entity
@@ -98,8 +97,8 @@ function GetCoords(entity)
   end
 end
 
-- Create Vehicle 
 
+- Create Vehicle -- creates vehicles
 
 function Sv_CreateVehicle(source, model, coords)
   if not IsDuplicityVersion() then return end
@@ -115,8 +114,8 @@ function Sv_CreateVehicle(source, model, coords)
   end
 end
 
-- Creating Server CallBacks
 
+- Creating Server CallBacks -- Creates server Callbacks
 
 function CreateCallback(...)
   if not IsDuplicityVersion() then return end
