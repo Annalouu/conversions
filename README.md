@@ -160,3 +160,14 @@ function GetPlayerData(source)
   end
 end
 
+
+function Removeitem(item, count, boolean)
+  local Core = GetCoreObject()
+  local Player = GetPlayerData(source)
+  if not IsDuplicityVersion() then return end
+    if Config.traphouse.Framework == 'esx' then
+      return Player.removeInventoryItem(item, count)
+    elseif Config.traphouse.Framework == 'qb' then
+      return Removeitem(item, count,boolean)
+    end
+end
