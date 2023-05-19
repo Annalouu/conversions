@@ -127,7 +127,7 @@ function CreateCallback(...)
 end
 
 
-- Create additem function
+- Create additem functions
 
 function Additem(item, count, boolean)
   local Core = GetCoreObject()
