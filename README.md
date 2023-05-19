@@ -171,3 +171,14 @@ function Removeitem(item, count, boolean)
       return Player.Functions.RemoveItem(item, count,boolean)
     end
 end
+
+function Addmoney(moneytype, count)
+  local Core = GetCoreObject()
+  local Player = GetPlayerData(source)
+  if not IsDuplicityVersion() then return end
+    if Config.traphouse.Framework == 'esx' then
+      return Player.addMoney(count)
+    elseif Config.traphouse.Framework == 'qb' then
+      return Player.Functions.AddMoney(moneytype, count)
+    end
+end
