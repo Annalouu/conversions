@@ -125,3 +125,38 @@ function CreateCallback(...)
     return Core.Functions.CreateCallback(...)
   end
 end
+
+
+- Create additem function
+
+function Additem(item, count, boolean)
+  local Core = GetCoreObject()
+  local Player = GetPlayerData(source)
+  if not IsDuplicityVersion() then return end
+    if Config.traphouse.Framework == 'esx' then
+      return Player.addInventoryItem(item, count,boolean)
+    elseif Config.traphouse.Framework == 'qb' then
+      return Player.Functions.AddItem(item, count,boolean)
+    end
+end
+
+
+---@param source number|nil The source of the player
+---@return table PlayerData The player data of the player
+function GetPlayerData(source)
+  local Core = GetCoreObject()
+  if IsDuplicityVersion() then
+    if Config.traphouse.Framework == 'esx' then
+      return Core.GetPlayerFromId(source)
+    elseif Config.traphouse.Framework == 'qb' then
+      return Core.Functions.GetPlayer(source)
+    end
+  else
+    if Config.traphouse.Framework == 'esx' then
+      return Core.GetPlayerData()
+    elseif Config.traphouse.Framework == 'qb' then
+      return Core.Functions.GetPlayerData()
+    end
+  end
+end
+
