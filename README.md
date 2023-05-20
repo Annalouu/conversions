@@ -152,9 +152,9 @@ function GetPlayerData(source)
       return Core.Functions.GetPlayer(source)
     end
   else
-    if Config.traphouse.Framework == 'esx' then
+    if Config.Framework == 'esx' then
       return Core.GetPlayerData()
-    elseif Config.traphouse.Framework == 'qb' then
+    elseif Config.Framework == 'qb' then
       return Core.Functions.GetPlayerData()
     end
   end
@@ -165,9 +165,9 @@ function Removeitem(item, count, boolean)
   local Core = GetCoreObject()
   local Player = GetPlayerData(source)
   if not IsDuplicityVersion() then return end
-    if Config.traphouse.Framework == 'esx' then
+    if Config.Framework == 'esx' then
       return Player.removeInventoryItem(item, count)
-    elseif Config.traphouse.Framework == 'qb' then
+    elseif Config.Framework == 'qb' then
       return Player.Functions.RemoveItem(item, count,boolean)
     end
 end
@@ -176,9 +176,9 @@ function RemoveMoney(moneytype, count)
   local Core = GetCoreObject()
   local Player = GetPlayerData(source)
   if not IsDuplicityVersion() then return end
-    if Config.traphouse.Framework == 'esx' then
+    if Config.Framework == 'esx' then
       return Player.RemoveMoney(count)
-    elseif Config.traphouse.Framework == 'qb' then
+    elseif Config.Framework == 'qb' then
       return Player.Functions.RemoveMoney(moneytype, count)
     end
 end
@@ -187,9 +187,9 @@ function Addmoney(moneytype, count)
   local Core = GetCoreObject()
   local Player = GetPlayerData(source)
   if not IsDuplicityVersion() then return end
-    if Config.traphouse.Framework == 'esx' then
+    if Config.Framework == 'esx' then
       return Player.addMoney(count)
-    elseif Config.traphouse.Framework == 'qb' then
+    elseif Config.Framework == 'qb' then
       return Player.Functions.AddMoney(moneytype, count)
     end
 end
