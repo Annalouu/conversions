@@ -134,9 +134,10 @@ function Additem(item, count, boolean)
   local Player = GetPlayerData(source)
   if not IsDuplicityVersion() then return end
     if Config.traphouse.Framework == 'esx' then
-      return Player.addInventoryItem(item, count,boolean)
+       Player.addInventoryItem(item, count)
     elseif Config.traphouse.Framework == 'qb' then
-      return Player.Functions.AddItem(item, count,boolean)
+      Player.Functions.AddItem(item, count,boolean) 
+      TriggerClientEvent('inventory:client:ItemBox', source, Core.Shared.Items[item], "add")
     end
 end
 
@@ -166,9 +167,10 @@ function Removeitem(item, count, boolean)
   local Player = GetPlayerData(source)
   if not IsDuplicityVersion() then return end
     if Config.Framework == 'esx' then
-      return Player.removeInventoryItem(item, count)
+      Player.addInventoryItem(item, count)
     elseif Config.Framework == 'qb' then
-      return Player.Functions.RemoveItem(item, count,boolean)
+      Player.Functions.RemoveItem(item, count,boolean) 
+      TriggerClientEvent('inventory:client:ItemBox', source, Core.Shared.Items[item], "remove")
     end
 end
 
