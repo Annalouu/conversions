@@ -195,3 +195,30 @@ function Addmoney(moneytype, count)
       return Player.Functions.AddMoney(moneytype, count)
     end
 end
+
+
+--Client side Notifications
+
+function Notify(text,option)
+  local Core = GetCoreObject()
+  if IsDuplicityVersion() then return end
+  if Config.traphouse.Notify == 'qb' then
+    return Core.Functions.Notify(text, option)
+  elseif Config.traphouse.Notify == 'ox' then
+    return lib.notify({
+      title = Config.traphouse.Title,
+      description = text,
+      type = option
+  })
+  elseif Config.traphouse.Notify == 'esx' then
+    TriggerServerEvent('your-script:server:esxnotification', text, option)
+  end
+end
+
+--For esx you must send a trigger to your Server side.
+RegisterNetEvent('your-script:server:esxnotification', function(text,option)
+  local src = source
+  TriggerClientEvent('esx:showNotification', src, text, option)
+end)
+
+
