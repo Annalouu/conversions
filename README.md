@@ -1,4 +1,4 @@
-Made by Donhulio
+Started by DonHulion and finished by me.
 
 ---------SHARED
 - Getting the Object
