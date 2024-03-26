@@ -202,15 +202,15 @@ end
 function Notify(text,option)
   local Core = GetCoreObject()
   if IsDuplicityVersion() then return end
-  if Config.traphouse.Notify == 'qb' then
+  if Config.Notify == 'qb' then
     return Core.Functions.Notify(text, option)
-  elseif Config.traphouse.Notify == 'ox' then
+  elseif Config.Notify == 'ox' then
     return lib.notify({
-      title = Config.traphouse.Title,
+      title = Config.Title,
       description = text,
       type = option
   })
-  elseif Config.traphouse.Notify == 'esx' then
+  elseif Config.Notify == 'esx' then
     TriggerServerEvent('your-script:server:esxnotification', text, option)
   end
 end
